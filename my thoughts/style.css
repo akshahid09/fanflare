@@ -1,0 +1,523 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    font-family: Poppins;
+    margin: 0;
+    font-size: 16px;
+   background-color: #181717;
+    color: grey;
+    height: auto;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root{
+    
+    --w-image: 650px;
+    --calculate: calc(2/ 2);
+}
+header{
+    display: grid;
+    grid-template-columns: 80px 1fr calc(var(--w-image) * var(--calculate));
+    grid-template-rows: 80px;
+    position: relative;
+    z-index: 10;
+    border-bottom: 1px transparent var(--border-color);
+}
+header .logo img{
+    width: 80%;
+}
+header .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header nav a{
+    color: grey;
+    font-weight: 400;
+    margin-left: 50px;
+    
+}
+header nav ul{
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 30px;
+    padding-right: 30px;
+}
+header nav{
+    border-left: 1px solid var(--border-color);
+}
+header .signUp{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: #4f8b69;
+    color: rgb(255, 255, 255);
+    padding: 5px  10px;
+    font-family: Poppins;
+    font-size: normal;
+    font-weight: 300;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    }
+header .signUp:hover{
+        color: #4f8b69;
+        background-color: black;
+}
+header .signUp:active{
+    background-color: #4f8b69;
+    color: #fff;
+}
+.carousel{
+    margin-top: -160px;
+    width: 100%;
+    height: 130vh;
+    overflow: hidden;
+}
+.carousel .list{
+    height: 100%;
+    position: relative;
+}
+.carousel .list::before{
+    position: absolute;
+    width: var(--w-image);
+    height: 100%;
+    content: '';
+    top: 0;
+    left: calc(100% - calc(var(--w-image) * var(--calculate)));
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    z-index: 10;
+    pointer-events: none;
+}
+.carousel .list::after{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    content: '';
+    background-color: red;
+    width: 300px;
+    height: 300px;
+    z-index: 10;
+    pointer-events: none;
+    border-radius: 20px  50px 110px  230px;
+    filter: blur(150px);
+    opacity: .6;
+}
+.carousel .list .item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.carousel .list .item .image{
+    width: var(--w-image);
+    height: 90%;
+    position: absolute;
+    top: 0;
+    left: calc(100% - calc(var(--w-image) * var(--calculate)));
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    font-weight: 500;
+}
+.carousel .list .item .image img{
+    width: 80%;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 150px 50px #9e0c0c55);
+}
+.carousel .list .item .image figcaption{
+    font-family: 'Aboreto';
+    font-weight: bold;
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 10px;
+    width: 70%;
+    top: 0;
+}
+.carousel .list .item .main-content{
+    height: 100%;
+    display: grid;
+    grid-template-columns: calc(100% - calc(var(--w-image) * var(--calculate)));
+}
+.carousel .list .item .main-content .content{
+    padding: 150px 20px  20px 80px;
+}
+.carousel .list .item .main-content .content h2{
+    font-size: 5em;
+    font-family: 'Aboreto';
+}
+.carousel .list .item .main-content .content .price{
+    font-family: 'Aboreto';
+    font-size: 3em;
+    margin: 20px 0;
+}
+.carousel .list .item .main-content .content .addToCard{
+    background-color: #4f8b69;
+    color: #fff;
+    padding: 10px  30px;
+    font-family: Poppins;
+    font-size: large;
+    font-weight: 500;
+    border-radius: 30px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.carousel .list .item .main-content .content .addToCard:hover{
+    color: #4f8b69;
+        background-color: black;
+}
+.carousel .list .item .main-content .content .addToCard:active{
+    background-color: #4f8b69;
+    color: #fff;
+}
+.arrows{
+    position: absolute;
+    bottom: 20px;
+    width: calc(100% - calc(var(--w-image) * var(--calculate)));
+    display: grid;
+    grid-template-columns: repeat(2, 50px);
+    grid-template-rows: 50px;
+    justify-content: end;
+    gap: 10px;
+}
+.arrows button{
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: #fff;
+    font-family: monospace;
+    font-size: large;
+    font-weight: bold;
+    line-height: 0;
+    box-shadow: 0 10px 40px #5555;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.arrows button:hover{
+    background-color: #eee5;
+}
+/*featured artist*/
+.featured-artists {
+    position: relative;
+    padding: 50px;
+    text-align: center;
+    background-color:#181717;
+}
+
+.featured-artists h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.artist-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 450px; /* Adjust height as needed */
+    background-color:#181717 ;
+    overflow: hidden; /* Ensure images don't overflow */
+}
+
+.artist {
+    width: 200px; /* Adjust size as needed */
+    height: auto;
+    margin: 0 5px; /* Adjust gap between images */
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(171, 166, 166, 0.2);
+}
+
+.artist img {
+    width: 100%;
+    height: auto;
+}
+
+.artist:hover {
+    transform: scale(1.1);
+}
+.view-more {
+    position: absolute;
+    top: 160px;
+    right: 70px;
+    background-color: #4f8b69;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.view-more:hover {
+    background-color: black;
+}
+
+.view-more:active {
+    background-color: #4f8b69;
+    color: #fff;
+}
+/* Carousel-like background */
+.featured-artists::before {
+    content: '';
+    position: absolute;
+    width: var(--w-image);
+    height: 100%;
+    top: 0;
+    left: calc(100% - calc(var(--w-image) * var(--calculate)));
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.featured-artists::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 300px;
+    height: 300px;
+    background-color: red;
+    border-radius: 20px 50px 110px 230px;
+    filter: blur(150px);
+    opacity: 0.6;
+    z-index: 10;
+    pointer-events: none;
+}
+/*category*/
+.collection-content {
+    position: relative;
+    padding: 50px;
+    text-align: center;
+    background-color: #181717;
+}
+
+.collection-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-family: 'Aboreto', sans-serif;
+}
+
+.collection-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.collection-container .more-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #4f8b69;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.collection-container .more-button:hover {
+    background-color: black;
+    color: #4f8b69;
+}
+
+.collection-container .more-button:active {
+    background-color: #4f8b69;
+    color: white;
+}
+
+.collection-item {
+    width: 200px; /* Make circles bigger */
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    transition: transform 0.5s ease;
+    position: relative;
+}
+
+.collection-item:hover {
+    transform: scale(1.1);
+}
+
+.collection-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.genre-info {
+    margin-top: 10px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+
+/* Carousel-like background */
+.collection-content::before {
+    content: '';
+    position: absolute;
+    width: var(--w-image);
+    height: 100%;
+    top: 0;
+    left: calc(100% - calc(var(--w-image) * var(--calculate)));
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.collection-content::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 300px;
+    height: 300px;
+    background-color: red;
+    border-radius: 20px 50px 110px 230px;
+    filter: blur(150px);
+    opacity: 0.6;
+    z-index: 10;
+    pointer-events: none;
+}
+
+
+.carousel .list .item{
+    display: none;
+}
+.carousel .list .item.active,
+.carousel .list .item.other_1,
+.carousel .list .item.other_2{
+    display: block;
+}
+.carousel .list .item.active{
+    z-index: 2;
+}
+.carousel .list .item.other_1,
+.carousel .list .item.other_2{
+    pointer-events: none;
+}
+.carousel .list .item.active .main-content{
+    animation: showContent 1s ease-in-out 1 forwards;
+}
+@keyframes showContent{
+    from{
+        clip-path: circle(0% at 70% 50%);
+    }to{
+        clip-path: circle(100% at 70% 50%);
+    }
+}
+.next .item.other_1{
+    z-index: 1;
+}
+.next .item .image img,
+.next .item .image figcaption{
+    animation: effectNext .5s ease-in-out 1 forwards;
+}
+@keyframes effectNext{
+    from{
+        transform: translateX(calc(var(--transform-from)));
+    }to{
+        transform: translateX(calc(var(--transform-from) - var(--w-image)));
+    }
+}
+.next .item.active .image{
+    --transform-from: var(--w-image);
+}
+.next .item.other_1 .image{
+    z-index: 3;
+    --transform-from: 0px;
+    overflow: hidden;
+}
+.next .item.other_2 .image{
+    z-index: 3;
+    --transform-from: calc(var(--w-image) * 2);
+}
+.arrows{
+    z-index: 10;
+}
+/* prev */
+.prev .list .item .image img,
+.prev .list .item .image figcaption{
+    animation: effectPrev 0.5s ease-in-out 1 forwards;
+}
+@keyframes effectPrev{
+    from{
+        transform: translateX(calc(var(--transform-from)));
+    }to{
+        transform: translateX(calc(var(--transform-from) + var(--w-image)));
+    }
+}
+.prev .list .item.active .image{
+    --transform-from: calc(var(--w-image) * -1);
+    overflow: hidden;
+}
+.prev .list .item.other_1 .image{
+    --transform-from: 0px;
+    z-index: 3;
+}
+.prev .list .item.other_2 .image{
+    z-index: 3;
+    --transform-from: var(--w-image);
+}
+.prev .list .item.other_2 .main-content{
+    opacity: 0;
+}
+@media screen and (max-width: 1023px){
+    :root{
+        --calculate: 1;
+        --w-image: 400px; 
+    }
+    .carousel .list .item .main-content .content h2{
+        font-size: 3em;
+    }
+}
+@media screen and (max-width: 767px){
+    .carousel .list .item .image{
+        width: 100%;
+        left: 0;
+        justify-content: center;
+    }
+    .carousel .list .item .image figcaption{
+        color: #fff;
+        width: 100%;
+        text-align: center;
+    }
+    .carousel .list .item .main-content .content{
+        display: none;
+    }
+    .arrows{
+        left: 50%;
+        justify-content: center;
+    }
+}
